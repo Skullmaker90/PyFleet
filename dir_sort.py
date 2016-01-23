@@ -35,11 +35,11 @@ class sort(object):
 		self.name = name
 		args = ("%s%s" % (path, name))
 		file_list = glob.glob(args)
-		self.comp_new(file_list)
+		return self.comp_new(file_list)
 	
 	def oldest(self, path, name):
 		self.path = path
 		self.name = name
 		args = ("%s%s" % (path, name))
 		file_list = glob.glob(args)
-		self.comp_old(file_list)
+		return self.comp_old(file_list)
