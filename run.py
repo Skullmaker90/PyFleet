@@ -5,13 +5,10 @@ import dir_sort, log_parse, key_watch, slack_post
 
 def main(a, b, c, d):
         x = a.newest("/win7/", "Alliance*")
-	print(x)
         while True:
 		try:
                 	y = b.log_parse(x)
-			print(y)
                 	z = c.key_watch(y, "!fb")
-			print(z)
 			if z is not None:
 				d.slack_post(z)
                 	time.sleep(1)
