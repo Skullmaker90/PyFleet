@@ -25,4 +25,5 @@ class key_watch(object):
 	def key_watch(self, parsed_log, key):
 		self.key = key
 		self.parsed_log = self.parsed_log + parsed_log
-		self.line_comp()
+		return self.line_comp()
+		
