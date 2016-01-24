@@ -30,7 +30,7 @@ class log_parse(object):
 
 	def get_start(self):
 		if (self.log_array[0][1] == 'EVE System') is True:
-			self.log_array = self.log_array[13:len(self.log_array)]
+			self.log_array = self.log_array[1:len(self.log_array)]
 
 	def init_parse(self):
 		for line in self.text[12:len(self.text)]:
