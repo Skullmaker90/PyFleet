@@ -20,9 +20,7 @@ class log(object):
 		return x
 
 	def append(self):
-		if self.acheck():
-			break
-		else:
+		if self.acheck() is False:
 			self.log = self.log + self.ofile.readlines()
 			self.offset = self.offset + self.ofile.tell() + 2
 		return self.log
