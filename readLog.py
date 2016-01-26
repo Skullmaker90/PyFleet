@@ -1,26 +1,23 @@
 #!/usr/bin/python
 
+import codecs
+
 class log(object):
 	def __init__(self, path):
-		self.log = None
-		self.ofile = None
-		self.path = path
+		self.log = []
 		self.offset = 0
+		self.path = path
 
-	def open(self):
-		try:
-			self.ofile = codecs.open(('%s' % self.path), 'r', encoding='utf-16-le')
-		except IOError:
-			print("Could not open file.")
-			
-	def acheck(self):
-		self.ofile.seek(self.offset)
-		x = (self.ofile.readlines() == [])
-		self.ofile.seek(self.offset)
+	def acheck(self, ofile):
+		ofile = ofile
+		ofile.seek(self.offset)
+		x = (ofile.readlines() == [])
+		ofile.seek(self.offset)
 		return x
 
 	def append(self):
-		if self.acheck() is False:
-			self.log = self.log + self.ofile.readlines()
-			self.offset = self.offset + self.ofile.tell() + 2
+		with codecs.open(self.path, 'r', encoding=('utf-16-le')) as ofile:
+			if self.acheck(ofile) is False:
+				self.log = self.log + ofile.readlines()
+				self.offset = self.offset + ofile.tell() + 2
 		return self.log
