@@ -16,7 +16,7 @@ class log_parse(object):
 			self.log_array = self.log_array[13:len(self.log_array)]
 
 	def line_parse(self, line):
-		line = line
+		line = line.encode('utf-8')
 		timestamp = line[line.find('['):line.find('[')+23]
 		name = line[line.find('[')+24:line.find('>')-1]
 		message = line[line.find('>')+2:line.find('\r')]
@@ -27,5 +27,5 @@ class log_parse(object):
 		for line in text:
 			line = self.line_parse(line)
 			self.log_array.append(line)
-		get_log()
+		cut_log()
 		return self.log_array
