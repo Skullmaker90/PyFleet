@@ -12,8 +12,8 @@ class log_parse(object):
 		self.tlen = 0
 
 	def cut_log(self):
-		if (self.log_array[0][1] == 'EVE System') is True:
-			self.log_array = self.log_array[13:len(self.log_array)]
+		if (self.log_array[0][12] == 'EVE System') is True:
+			self.log_array = self.log_array[13:self.lolen]
 
 	def line_parse(self, line):
 		line = line.encode('utf-8')
@@ -27,5 +27,4 @@ class log_parse(object):
 		for line in text:
 			line = self.line_parse(line)
 			self.log_array.append(line)
-		cut_log()
-		return self.log_array
+		self.cut_log()
