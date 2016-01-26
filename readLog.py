@@ -20,4 +20,4 @@ class log(object):
 			if self.acheck(ofile) is False:
 				self.log = self.log + ofile.readlines()
 				self.offset = self.offset + ofile.tell() + 2
-		return self.log
+		self.log
